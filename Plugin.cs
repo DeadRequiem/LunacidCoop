@@ -21,6 +21,8 @@ namespace LunacidCoopMod
             var harmony = new Harmony("com.stilIborn.lunacidcoop");
             harmony.PatchAll(typeof(Plugin).Assembly);
 
+            Log.LogInfo("[Co-Op] Harmony patches applied");
+
             // Ensure network manager exists
             if (NetworkManager.Instance == null)
             {
@@ -39,7 +41,7 @@ namespace LunacidCoopMod
                 Log.LogInfo("[Co-Op] PlayerSyncManager created");
             }
 
-            // Ensure MPMenu exists (this will now also handle the rat)
+            // Ensure MPMenu exists (handles rat interaction + GUI)
             if (MPMenu.Instance == null)
             {
                 var menuGO = new GameObject("MPMenu");
@@ -48,10 +50,19 @@ namespace LunacidCoopMod
                 Log.LogInfo("[Co-Op] MPMenu created");
             }
 
+            // Ensure NpcScanner exists (now handles NPC sync)
+            if (NpcScanner.Instance == null)
+            {
+                var npcScanGO = new GameObject("NpcScanner");
+                npcScanGO.AddComponent<NpcScanner>();
+                DontDestroyOnLoad(npcScanGO);
+                Log.LogInfo("[Co-Op] NpcScanner created");
+            }
+
             Log.LogInfo($"[Co-Op] Plugin loaded v{ModVersion}.");
         }
 
-        // Patch to prevent game pausing when connected
+        // 🔹 Patch to prevent game pausing when connected
         [HarmonyPatch(typeof(Time), nameof(Time.timeScale), MethodType.Setter)]
         public static class Patch_TimeScaleSetter
         {

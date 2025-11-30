@@ -110,6 +110,9 @@ namespace LunacidCoopMod
                 CurrentScene = SceneManager.GetActiveScene().name
             };
             net.SendMessage(msg);
+
+            // 🔹 quieted (was Info)
+            Plugin.Log.LogDebug($"[PlayerSync] Sent update: {msg.WeaponName} at {msg.Position}");
         }
 
         private void HandleNetMessage(NetworkMessage m)
@@ -132,7 +135,7 @@ namespace LunacidCoopMod
 
             if (weAreHost)
             {
-                Plugin.Log.LogInfo($"[PlayerSync] Host received client update: {u.WeaponName} at {u.Position}");
+                Plugin.Log.LogDebug($"[PlayerSync] Host update: {u.WeaponName} at {u.Position}");
 
                 if (clientDummy == null)
                 {
@@ -146,7 +149,7 @@ namespace LunacidCoopMod
 
                     if (lastClientWeapon != u.WeaponName)
                     {
-                        Plugin.Log.LogInfo($"[PlayerSync] Client weapon changed: {lastClientWeapon} -> {u.WeaponName}");
+                        Plugin.Log.LogDebug($"[PlayerSync] Client weapon changed: {lastClientWeapon} -> {u.WeaponName}");
                         lastClientWeapon = u.WeaponName;
                         PlayerVisuals.UpdateWeaponVisuals(clientDummy, lastClientWeapon);
                     }
@@ -154,7 +157,7 @@ namespace LunacidCoopMod
             }
             else
             {
-                Plugin.Log.LogInfo($"[PlayerSync] Client received host update: {u.WeaponName} at {u.Position}");
+                Plugin.Log.LogDebug($"[PlayerSync] Client update: {u.WeaponName} at {u.Position}");
 
                 if (hostDummy == null)
                 {
@@ -168,7 +171,7 @@ namespace LunacidCoopMod
 
                     if (lastHostWeapon != u.WeaponName)
                     {
-                        Plugin.Log.LogInfo($"[PlayerSync] Host weapon changed: {lastHostWeapon} -> {u.WeaponName}");
+                        Plugin.Log.LogDebug($"[PlayerSync] Host weapon changed: {lastHostWeapon} -> {u.WeaponName}");
                         lastHostWeapon = u.WeaponName;
                         PlayerVisuals.UpdateWeaponVisuals(hostDummy, lastHostWeapon);
                     }

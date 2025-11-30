@@ -44,6 +44,43 @@ namespace LunacidCoopMod
     }
 
     [Serializable]
+    public class SceneQueryMessage : NetworkMessage
+    {
+        public string SceneName;
+    }
+
+    [Serializable]
+    public class SceneStateMessage : NetworkMessage
+    {
+        public string SceneName;
+        public int ZoneIndex;
+        public string ZoneData;
+    }
+
+    [Serializable]
+    public class NpcUpdateMessage : NetworkMessage
+    {
+        public string SceneName;
+        public int ZoneIndex;
+        public int NpcId;
+        public int HP;
+        public bool Dead;
+
+        public bool IsUrgent => Dead || HP <= 0;
+    }
+
+    // NPC Position sync message
+    [Serializable]
+    public class NpcPositionMessage : NetworkMessage
+    {
+        public string SceneName;
+        public int ZoneIndex;
+        public int NpcId;
+        public Vector3 Position;
+        public Vector3 Rotation;
+    }
+
+    [Serializable]
     internal class Envelope
     {
         public string Kind;
@@ -61,9 +98,23 @@ namespace LunacidCoopMod
             };
 
             string json = JsonUtility.ToJson(env, false);
-            Plugin.Log.LogDebug($"[JSON OUT] {json}");
+
+            // Selective logging based on message type
+            if (message is NpcUpdateMessage npc && (npc.Dead || npc.HP <= 10))
+                Plugin.Log.LogInfo($"[NET SEND] {json}");
+            else if (message is NpcPositionMessage)
+                Plugin.Log.LogDebug($"[NET SEND POS] NPC {((NpcPositionMessage)message).NpcId} -> {((NpcPositionMessage)message).Position}");
+            else if (!(message is NpcUpdateMessage))
+                Plugin.Log.LogDebug($"[NET SEND] {json}");
 
             byte[] data = Encoding.UTF8.GetBytes(json);
+
+            // Validate message size
+            if (data.Length > 4096)
+            {
+                Plugin.Log.LogWarning($"[NET] Large message ({data.Length} bytes): {message.Kind}");
+            }
+
             byte[] length = BitConverter.GetBytes(data.Length);
 
             byte[] packet = new byte[4 + data.Length];
@@ -74,47 +125,80 @@ namespace LunacidCoopMod
 
         public static NetworkMessage Deserialize(byte[] data)
         {
-            string json = Encoding.UTF8.GetString(data);
-            Plugin.Log.LogDebug($"[JSON IN] {json}");
-
-            var env = JsonUtility.FromJson<Envelope>(json);
-            if (env == null || string.IsNullOrEmpty(env.Kind)) return null;
-
-            switch (env.Kind)
+            try
             {
-                case nameof(PlayerUpdateMessage): return JsonUtility.FromJson<PlayerUpdateMessage>(env.Payload);
-                case nameof(ChatMessage): return JsonUtility.FromJson<ChatMessage>(env.Payload);
-                case nameof(SceneChangeMessage): return JsonUtility.FromJson<SceneChangeMessage>(env.Payload);
-                case nameof(HandshakeMessage): return JsonUtility.FromJson<HandshakeMessage>(env.Payload);
-                default:
-                    Plugin.Log.LogWarning($"[NetworkMessage] Unknown Kind: {env.Kind}");
-                    return null;
+                string json = Encoding.UTF8.GetString(data);
+
+                var env = JsonUtility.FromJson<Envelope>(json);
+                if (env == null || string.IsNullOrEmpty(env.Kind)) return null;
+
+                // Selective logging based on message type
+                if (env.Kind == nameof(NpcUpdateMessage))
+                {
+                    var temp = JsonUtility.FromJson<NpcUpdateMessage>(env.Payload);
+                    if (temp?.Dead == true || temp?.HP <= 10)
+                        Plugin.Log.LogInfo($"[NET RECV] {json}");
+                }
+                else if (env.Kind == nameof(NpcPositionMessage))
+                {
+                    var temp = JsonUtility.FromJson<NpcPositionMessage>(env.Payload);
+                    Plugin.Log.LogDebug($"[NET RECV POS] NPC {temp?.NpcId} -> {temp?.Position}");
+                }
+                else
+                {
+                    Plugin.Log.LogDebug($"[NET RECV] {json}");
+                }
+
+                switch (env.Kind)
+                {
+                    case nameof(PlayerUpdateMessage): return JsonUtility.FromJson<PlayerUpdateMessage>(env.Payload);
+                    case nameof(ChatMessage): return JsonUtility.FromJson<ChatMessage>(env.Payload);
+                    case nameof(SceneChangeMessage): return JsonUtility.FromJson<SceneChangeMessage>(env.Payload);
+                    case nameof(HandshakeMessage): return JsonUtility.FromJson<HandshakeMessage>(env.Payload);
+                    case nameof(SceneQueryMessage): return JsonUtility.FromJson<SceneQueryMessage>(env.Payload);
+                    case nameof(SceneStateMessage): return JsonUtility.FromJson<SceneStateMessage>(env.Payload);
+                    case nameof(NpcUpdateMessage): return JsonUtility.FromJson<NpcUpdateMessage>(env.Payload);
+                    case nameof(NpcPositionMessage): return JsonUtility.FromJson<NpcPositionMessage>(env.Payload);
+                    default:
+                        Plugin.Log.LogWarning($"[NetworkMessage] Unknown Kind: {env.Kind}");
+                        return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Plugin.Log.LogError($"[NetworkMessage] Deserialize error: {e.Message}");
+                return null;
             }
         }
     }
 
     public class MessageBuffer
     {
-        private byte[] buffer = new byte[8192];
+        private byte[] buffer = new byte[16384]; // Large buffer for position + health messages
         private int bufferPos = 0;
         private int expectedLength = -1;
 
         public NetworkMessage ProcessData(byte[] newData, int length)
         {
+            // Prevent buffer overflow
             if (bufferPos + length > buffer.Length)
             {
-                Plugin.Log.LogError("[MessageBuffer] Buffer overflow!");
+                Plugin.Log.LogError($"[MessageBuffer] Buffer overflow! Current: {bufferPos}, New: {length}, Max: {buffer.Length}");
                 Reset();
                 return null;
             }
 
-            Array.Copy(newData, 0, buffer, bufferPos, length);
-            bufferPos += length;
+            if (length > 0)
+            {
+                Array.Copy(newData, 0, buffer, bufferPos, length);
+                bufferPos += length;
+            }
 
+            // Try to read message length header
             if (expectedLength == -1 && bufferPos >= 4)
             {
                 expectedLength = BitConverter.ToInt32(buffer, 0);
-                if (expectedLength < 0 || expectedLength > 4096)
+                if (expectedLength < 0 || expectedLength > 8192)
                 {
                     Plugin.Log.LogError($"[MessageBuffer] Invalid message length: {expectedLength}");
                     Reset();
@@ -122,14 +206,18 @@ namespace LunacidCoopMod
                 }
             }
 
+            // Try to read complete message
             if (expectedLength != -1 && bufferPos >= 4 + expectedLength)
             {
                 byte[] messageData = new byte[expectedLength];
                 Array.Copy(buffer, 4, messageData, 0, expectedLength);
 
+                // Shift remaining data to beginning of buffer
                 int remaining = bufferPos - (4 + expectedLength);
                 if (remaining > 0)
+                {
                     Array.Copy(buffer, 4 + expectedLength, buffer, 0, remaining);
+                }
 
                 bufferPos = remaining;
                 expectedLength = -1;
@@ -144,6 +232,7 @@ namespace LunacidCoopMod
         {
             bufferPos = 0;
             expectedLength = -1;
+            Plugin.Log.LogDebug("[MessageBuffer] Reset");
         }
     }
 }
