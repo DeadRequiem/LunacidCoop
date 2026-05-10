@@ -1,0 +1,37 @@
+LunacidCoop/
+  Plugin.cs
+
+  Network/
+    NetworkMessages.cs
+    SteamNetworkManager.cs
+
+  Players/
+    PlayerSyncManager.cs _____ (position/rotation/scene/dummy lifecycle)
+    PlayerRegistry.cs
+    PlayerVisuals.cs
+    PlayerNaming.cs _____ (local name + future config overrides)
+
+  World/
+    WorldStateSync.cs _____ (AREA_SAVED_ITEM patches + handler)
+    WorldDestroySync.cs _____ (OBJ_HEALTH.Die patches + handler)
+    RigidbodySync.cs _____ (scene scan + CoopRigidbody coordination)
+    CoopRigidbody.cs
+
+  Spells/
+    SpellSync.cs _____ (Magic_scr patches + cast/destroy handlers)
+    CoopSpellInstance.cs
+
+  Weapons/
+    WeaponSync.cs _____ (Weapon_scr.Fire/Block patches + animation apply)
+
+  AI/
+    AIPatches.cs _____ (redirects AI targeting to nearest player; fixes XP + companion ownership)
+
+  UI/
+    MPMenu.cs _____ (menu state, cursor override, player freeze, ping HUD, rat spawn)
+
+  NPC/
+    NpcScanner.cs _____ (NPC discovery, ID mapping, host-driven sync, client puppet mode)
+
+  Util/
+    ScenePath.cs _____ (BuildScenePath, ResolveScenePath, BuildRelativePath)
