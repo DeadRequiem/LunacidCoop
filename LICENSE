@@ -1,0 +1,397 @@
+# LunacidCoop License
+
+Copyright (c) 2025–2026 Demi (also known as DeadRequiem, DeadDreamers, and
+Stiliborn). All rights reserved.
+
+*This license is pending formal attorney review and may be revised.*
+
+This is a source-available license. It is **not** an open-source license. By
+downloading, viewing, installing, or otherwise using this mod ("the Mod") or
+its source code, you agree to the terms below.
+
+## 1. Ownership
+
+### 1.1
+
+The author retains full copyright and ownership of all original source code,
+design, and content created for the Mod, except for third-party materials and
+intellectual property specifically identified in Sections 1.2, 1.3, and 1.4.
+
+### 1.2
+
+The Mod uses Steamworks.NET (Steamworks.NET.dll), a third-party wrapper for
+Valve's Steamworks SDK, to provide connectivity through Steam's networking
+infrastructure. Steamworks.NET, the Steamworks SDK, and Steam's networking
+systems remain the property of their respective owners, including
+Steamworks.NET's contributors and Valve Corporation, and are governed by their
+own licenses and terms.
+
+Nothing in this license grants the author or any recipient of the Mod ownership
+of, or additional rights to, those third-party components. Nothing in this
+license imposes restrictions upon those components beyond the restrictions and
+permissions established by their respective licenses and terms.
+
+### 1.3
+
+Any images, audio, models, fonts, external libraries, DLLs, or other assets
+referenced, bundled, or used by the Mod that were not created by the author
+remain the property of their respective copyright holders and are subject to
+those holders' own licenses and terms.
+
+Nothing in this license transfers, waives, or alters any third-party ownership,
+copyright, trademark, or other intellectual-property rights.
+
+### 1.4
+
+The Mod is built for and interacts with the game Lunacid and may reference,
+display, or incorporate game assets, artwork, or other copyrighted material
+belonging to Lunacid or its respective rights holders.
+
+Lunacid and its associated assets, artwork, and intellectual property remain
+the property of their respective rights holders. This license does not grant
+any rights to Lunacid itself or to Lunacid-owned assets beyond what is
+necessary to use the Mod in conjunction with a legitimately obtained copy of
+the game.
+
+At present, the Mod includes a single image originating from Lunacid. That
+image is not claimed as original work of the author and remains subject to the
+rights of its respective copyright holder.
+
+### 1.5
+
+The author recognizes that KIRA LLC and Critical Reflex, as the developer and
+publisher associated with Lunacid, may have legitimate concerns regarding the
+Mod's use of or integration with Lunacid.
+
+The author will consider requests made by KIRA LLC and/or Critical Reflex in
+good faith concerning Lunacid and the Mod. Such requests may include, but are
+not limited to:
+
+* Requesting that the Mod be privatized and no longer publicly distributed on
+  any public forum, repository, or platform.
+* Requesting changes to, or removal of, Lunacid-owned asset files used within
+  the Mod, including the Lunacid image currently included in the Mod.
+* Requesting additions or changes to this license, provided that any such
+  request does not remove, transfer, or otherwise limit the author's ownership
+  of the Mod, its original source code, or other rights reserved to the author
+  under this license. No request under this section, by itself, grants any
+  other party the right to modify, distribute, or otherwise exercise rights
+  over the Mod or its original source code without the author's separate
+  authorization.
+* Requesting compatibility fixes or other functional modifications to the
+  Mod.
+* Requesting official use or integration of the Mod, or portions of it, into
+  Lunacid itself, provided that any such use or integration is proposed to and
+  confirmed with the author first and the author is, at minimum, appropriately
+  credited.
+
+**Unreasonable requests** — which fall outside this accommodation and which
+the author is not obligated to comply with — include, but are not limited to:
+
+* Demanding that the Mod be destroyed entirely.
+* Issuing a DMCA takedown or equivalent claim against the Mod solely on the
+  basis that it is a Lunacid mod, where the claim does not identify specific
+  copyrighted material belonging to KIRA LLC, Critical Reflex, or another
+  rights holder that is allegedly infringed by the Mod. The author considers
+  such a claim unreasonable where the Mod's original source code and scripts
+  were independently created by the author and do not contain Lunacid's game
+  source code.
+
+This provision does not deny or limit any rights that KIRA LLC, Critical
+Reflex, Valve Corporation, or any other rights holder may have in their own
+copyrighted, trademarked, or otherwise protected material. In particular,
+nothing in this license prevents a rights holder from making a claim
+concerning a specific third-party asset or other material that it owns.
+
+Nothing in this section requires the author to comply with any request,
+reasonable or otherwise. This section defines the scope of the good-faith
+accommodation the author is willing to provide to KIRA LLC and Critical
+Reflex, while the author retains final discretion over the Mod, subject to
+applicable law.
+
+### 1.6
+
+The author maintains a public repository at
+https://github.com/DeadRequiem/LunacidCoop, containing the bulk majority of
+the Mod's source code, made available for reading under Section 2 of this
+license.
+Certain portions of the source may be excluded from the public repository at
+the author's discretion, typically including but not limited to code related
+to networking and Steam's peer-to-peer networking integration.
+
+The existence of a public repository does not make the source code open source
+and does not otherwise change or expand the rights granted under this license.
+The source code remains subject to all restrictions in Section 3, including
+the prohibitions on public hosting, mirroring, forking, and redistribution.
+
+Where ordinary technical copies are necessary to view or read the publicly
+available source code, such as a local repository clone used solely for that
+purpose, those copies are permitted only to the extent necessary to exercise
+the reading permission in Section 2 and may not be published or redistributed.
+
+## 2. Permitted Uses
+
+You are granted a limited, non-exclusive, non-transferable license, subject to
+termination under Section 5, to:
+
+* **Private use** — install and use the Mod for your own personal,
+  non-commercial enjoyment.
+* **Read the source** — view and read the source code for your own
+  understanding, education, or curiosity. This permission does not grant
+  permission to modify, redistribute, republish, or create derivative works
+  from the source code.
+* **Stream/showcase the Mod in use** — record, stream, or create video content
+  that shows the Mod running, including gameplay footage, let's plays,
+  livestreams, reviews, demonstrations, and similar content. This permission
+  includes monetized platforms and incidental advertising or platform revenue,
+  provided that the Mod's source code is not distributed, extracted, published,
+  or offered for download as part of that content.
+
+No other rights are granted, whether express, implied, or otherwise.
+
+## 3. Restrictions
+
+You may **not**, without prior written permission from the author:
+
+### 3.1 Modification and Derivative Works
+
+Modify the source code, assets, or compiled outputs of the Mod, or create or
+distribute derivative works based upon the Mod.
+
+### 3.2 Distribution and Redistribution
+
+Distribute, redistribute, republish, upload, transmit, or otherwise provide
+the Mod, its source code, or any modified version of the Mod, in whole or in
+part, through any channel or to any third party.
+
+Only the original author may distribute the Mod unless the author has
+specifically granted written permission to another party.
+
+### 3.3 Public Hosting, Mirroring, and Forking
+
+Host, upload, mirror, fork, republish, or otherwise make the source code or
+assets of the Mod available through any public code repository, file-sharing
+service, archive, mod-hosting platform, or similar service, including but not
+limited to GitHub, GitLab, Bitbucket, Pastebin, Nexus Mods, or similar sites.
+
+The sole exception is the specific public repository designated by the author
+for the purpose of making portions of the source code available for reading,
+as described in Section 1.6.
+
+### 3.4 Updating, Porting, and Adaptation
+
+Update, port, patch, adapt, or otherwise modify the Mod for compatibility with
+other versions of Lunacid, other operating systems, other hardware, or other
+platforms without the author's prior written permission.
+
+This restriction also applies to using any of the Mod's source code, assets,
+or other original material as the basis for another mod, game, software
+project, or derivative work.
+
+### 3.5 Transfer and Sublicensing
+
+Rent, lease, lend, sell, sublicense, assign, or otherwise transfer or
+redistribute the Mod or its source code to any third party.
+
+Every authorized copy of the Mod must include this license in full, and every
+authorized copy or working version of the Mod or its source code must retain
+and include this license and any applicable copyright or attribution notices.
+
+### 3.6 Reverse Engineering
+
+Decompile, disassemble, reverse engineer, or otherwise attempt to derive
+source code from the Mod's compiled binaries, or circumvent digital rights
+management (DRM) or security features implemented within them.
+
+This restriction applies to the compiled binaries. It does not prohibit
+reading the portions of source code that the author has voluntarily made
+available through the public repository referenced in Section 1.6.
+
+Nothing in this section is intended to restrict activity that applicable law
+does not permit the author to restrict.
+
+### 3.7 Commercial Use
+
+Use the Mod commercially, including selling it, bundling it with a paid
+product or service, monetizing the Mod or its source code directly, licensing
+it to another party for commercial exploitation, or otherwise using the Mod
+for commercial advantage.
+
+This restriction does not prohibit incidental monetization of video or
+streaming content expressly permitted under Section 2, such as advertising
+revenue or platform revenue generated by content that merely shows the Mod
+running.
+
+### 3.8 Patents
+
+No patent license is granted under this license. Nothing in this license
+shall be construed as granting any patent rights or permission to exercise
+any patent held by the author.
+
+### 3.9 Trademarks and Branding
+
+Use any trademarks, names, logos, or branding associated with the Mod or its
+author in a manner that suggests ownership, sponsorship, endorsement, or
+official affiliation, except where necessary to accurately identify or refer
+to the Mod or its author.
+
+Accurate references to the Mod, such as identifying it in a video, review,
+discussion, compatibility statement, or similar material, are permitted.
+
+### 3.10 AI and Machine Learning
+
+Use the Mod, its source code, or any substantial portion of its source code for
+AI or machine-learning purposes.
+
+This prohibition includes, but is not limited to:
+
+* Training or pre-training an AI or machine-learning model.
+* Fine-tuning, adapting, evaluating, or otherwise developing an AI or
+  machine-learning model.
+* Feeding, submitting, uploading, exposing, ingesting, indexing, or processing
+  the source code through an AI tool, agent, model, or automated AI system.
+* Using the source code as input, context, reference material, training data,
+  evaluation data, or a dataset for an AI system.
+* Using the source code with AI-assisted programming, code-completion,
+  automated code-generation, automated code-analysis, or similar AI-powered
+  development systems.
+* Automatically scraping, harvesting, or collecting the source code for use
+  in connection with an AI or machine-learning system.
+
+For clarity, the permission to read the source code under Section 2 permits
+ordinary human viewing and reading of the source code. It does not grant
+permission to submit that source code to an AI system or otherwise permit the
+AI/ML uses prohibited by this section.
+
+### 3.11 Notices
+
+Remove, obscure, alter, or falsify any copyright, attribution, license, or
+other ownership notices contained in the Mod or its source code.
+
+## 4. No Warranty; Limitation of Liability
+
+THE MOD IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+The author does not guarantee that the Mod will be compatible with, secure
+on, or free of errors, defects, interruptions, data loss, or other issues on
+any particular system, configuration, version of Lunacid, operating system,
+or platform.
+
+To the maximum extent permitted by applicable law, the author is not
+responsible for and shall not be liable for any damage to hardware, software,
+game data, save files, accounts, or any other loss arising from or related to
+the installation, use, misuse, modification, attempted modification, or
+failure of the Mod, including use in ways not intended or anticipated by the
+author.
+
+Use of the Mod is entirely at your own risk.
+
+## 5. Termination
+
+The license and rights granted under this Agreement are effective until
+terminated.
+
+Violation of any material term of this license automatically terminates the
+rights granted under this license without requiring prior notice from the
+author, except to the extent applicable law requires otherwise.
+
+Upon termination, you must immediately cease all use, distribution, and other
+exercise of rights under this license and must delete or destroy copies of the
+Mod, its source code, and any unauthorized derivative works or modifications
+in your possession or control, to the extent permitted by applicable law.
+
+Continued use or distribution of the Mod after termination may constitute
+copyright infringement, breach of this license, or both, and may subject the
+violating party to any remedies available to the author under applicable law.
+
+To the extent permitted by applicable law, the violating party shall be
+responsible for damages and other legal remedies resulting from the violation,
+including reasonable attorneys' fees and legal costs incurred by the author in
+enforcing this license.
+
+**Survival.** Sections 1 (Ownership), 3 (Restrictions), 4 (No Warranty;
+Limitation of Liability), 5 (Termination), 6 (Reservation of Rights), 7
+(Governing Law), and 8 (Severability) survive termination to the extent
+their provisions are intended to do so or are otherwise enforceable under
+applicable law.
+
+## 6. Reservation of Rights
+
+All rights not expressly granted in this license are reserved by the author.
+
+No permission, license, authorization, waiver, or other right shall be
+implied from the author's publication of the Mod, its source code, its public
+repository, or any other public availability of the Mod.
+
+This license does not create, and is not intended to create, any rights,
+benefits, or remedies in favor of any person or entity other than the author
+and the party exercising rights under this license, except where this
+license expressly states otherwise (such as the accommodation described in
+Section 1.5). No such third party may enforce any term of this license.
+
+## 7. Governing Law
+
+This license shall be governed by and construed in accordance with the laws
+of the State of Florida, USA, without regard to its conflict-of-law
+provisions, except to the extent applicable federal law controls.
+
+To the extent permitted by applicable law, any legal action or proceeding
+arising under or relating to this license shall be brought exclusively in the
+state or federal courts located in Florida, and the parties consent to the
+personal jurisdiction and venue of those courts.
+
+## 8. Severability
+
+If any provision of this license is held by a court or other tribunal of
+competent jurisdiction to be invalid, illegal, or unenforceable, that
+provision shall be limited or eliminated to the minimum extent necessary so
+that the remainder of this license remains valid, legal, and enforceable and
+continues in full force and effect.
+
+## 9. Privacy & Data Collection Notice
+
+The author does not, through the Mod or its source code, independently monitor,
+collect, harvest, record, sell, or analyze users or their personal information.
+
+The Mod runs locally and uses Steamworks.NET.dll to communicate through
+Steam's networking infrastructure. The author does not operate a master
+server, external data feed, telemetry service, or other external service for
+the Mod.
+
+Steam, Valve Corporation, Steamworks.NET, and other third parties may have
+their own data-collection practices, networking services, privacy policies,
+licenses, and terms. Nothing in this section is intended to describe,
+limit, or make representations regarding those third-party practices.
+
+The Mod can be run entirely offline by switching its configuration to local
+play. Note that local/offline play has only been tested on a single local
+computer and has not been tested over a LAN connecting multiple computers.
+
+## 10. Distribution & Anti-Scam Notice
+
+The author distributes the Mod only through the specific locations the author
+has designated for hosting and distribution.
+
+If you obtained the Mod from any other site, tool, repository, archive,
+platform, or individual, that source is not authorized by the author unless
+the author has separately stated otherwise in writing.
+
+The author provides the Mod free of charge and does not request or accept
+donations or contributions in exchange for obtaining the Mod.
+
+If you paid any person or party to obtain this Mod, that transaction was not
+authorized by the author and does not represent a legitimate purchase from,
+or payment to, the author.
+
+---
+
+*Questions about permissions beyond those expressly granted here, including
+collaborations, translations, ports, exceptions for specific uses, or other
+special permissions, should be directed to the author (Demi) via:*
+
+* *GitHub: https://github.com/DeadRequiem*
+* *Reddit: https://www.reddit.com/user/DerangedLunacy/*
+
+*Additional contact points may be added in the future.*
