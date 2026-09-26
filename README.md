@@ -23,3 +23,66 @@ Player **2** (client) may travel freely anywhere they personally have unlocked i
 However, without player **1** (host) in the same area, all NPCs will be static and unable to be damaged by player **2**.
 This is done to prevent sync issues between players.
 This also means that when player **1** enters an area without player **2**, NPCs that player **1** defeats will already be defeated when player **2** enters the area.
+
+### Hosting & Joining
+todo
+
+## Gameplay Details
+### Items
+todo
+### Enemy Scaling
+todo
+### Combat
+todo
+
+## Technical
+### NPCs
+todo
+### Other Players
+todo
+### Requirements & Install
+todo
+### Config Options
+todo
+### Game Pausing
+todo
+### Mod Compatibility
+todo
+### Known Issues & Limitations
+todo
+
+## How To Report Issues
+todo
+
+## Gallery & End notes
+The following is less detail of the mod and more imagery of the mod itself in various stages of creation, progression and in use. Some may have already been used above, but this is a collection of all of them regardless. This mod has gone through a lot of changes and variations over the years and I tried to take screenshots of it as I went to remind myself where it is that I started and where I still could improved and work on. This mod was made out of a passion and love for the game itself, Lunacid's environment truthfully is one of my favorites, with some of the soundtracks like Falling To Death being part of my main playlist. My hope is that others can enjoy playing around with this mod and enjoy the game with friends.
+
+<img width="50%" alt="1" src="https://github.com/user-attachments/assets/65ac553e-ea8b-43ec-8da1-315b6d5bfe6a" />
+
+<img width="50%" alt="2" src="https://github.com/user-attachments/assets/99a7dbcf-a920-4e08-bcc0-957d4a75ae30" />
+
+<img width="50%" alt="3" src="https://github.com/user-attachments/assets/bbff4352-326a-4452-8d62-47f2d235628b" />
+
+<img width="50%" alt="4" src="https://github.com/user-attachments/assets/d0ee6918-4dd5-4b2b-92f3-0285df1998f7" />
+
+<img width="50%" alt="5" src="https://github.com/user-attachments/assets/231f86fd-99f3-4772-9992-3c02adcbd8ea" />
+
+<img width="50%" alt="6" src="https://github.com/user-attachments/assets/e0c8ff2d-0085-45d3-b10e-bd5a80c656ff" />
+
+<img width="50%" alt="7" src="https://github.com/user-attachments/assets/bc4bd1e4-7f93-4f2a-a44b-c15f540be1f1" />
+
+<img width="50%" alt="8" src="https://github.com/user-attachments/assets/3bdc4442-c08c-4e86-b9e3-e2ee1dc41c72" />
+
+<img width="50%" alt="9" src="https://github.com/user-attachments/assets/72977102-5d52-4752-ab1a-e83c90dc5aa5" />
+
+<img width="50%" alt="12" src="https://github.com/user-attachments/assets/dea9df7f-db6e-4d65-93b6-5ddd0749066d" />
+
+<img width="50%" alt="13" src="https://github.com/user-attachments/assets/9e2d7400-8df9-426a-9ef3-58a7a3dbf4aa" />
+
+<img width="50%" alt="14" src="https://github.com/user-attachments/assets/44d76131-95ac-4bb1-852e-cd5ddf22715d" />
+
+<img width="50%" alt="15" src="https://github.com/user-attachments/assets/bdac78c9-0918-4d2f-b514-a3a3cb7bac35" />
+
+<img width="50%" alt="16" src="https://github.com/user-attachments/assets/101342ad-8fb7-45aa-9a95-ae7c4559e9a5" />
+
+
