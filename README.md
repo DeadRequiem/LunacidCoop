@@ -43,51 +43,58 @@ todo
 ### Requirements & Install
 todo
 ### Config Options
-In terms of config options, there's a lot of variety here, from debugging and logging to gameplay options. Most of which came out of necessity, such as ItemsPerPlayer, but others are completely optional difficulty tweaks for better gameplay experience, below is a list of them all and a brief explanation as to what they are for
-(Explanations are to do right now, will fill in when not tired as I am writing this on no sleep. Does anyone actually read this?)
+In terms of config options, there's a lot of variety here, from debugging and logging to gameplay options. Most of them came out of necessity, such as ItemsPerPlayer, some came into existence during testing with a "Hmm, that's gonna be an issue" with test parties, but others are completely optional difficulty tweaks for a better gameplay experience. Below is a list of them all(currently) and a brief explanation as to what they are for.
 #### Debug:
-- LocalTestMode
+- LocalTestMode: Connects over your own PC instead of Steam, so two copies of the game can be run side by side for testing and possibly, although never tried, LAN
 #### Display:
-- VSyncCount
+- VSyncCount: VSync. 0 is off, 1 is on, 2 is half your monitor's refresh rate.
 #### Gameplay:
-- ItemsPerPlayer
-- ScaleEnemyHP
-- HPScalePerPlayer
+While in a session, these follow the host's settings; a client's own are ignored.
+- ItemsPerPlayer: When on, every player can pick up their own copy of an item. When off however, items are shared, and once someone picks one up it's gone for everyone. Weapons and spells are always per-player either way and what an enemy drops is not sync'd with another player (For now at least, maybe if there is any interest).
+- ScaleEnemyHP: Toggle switch scaling of enemy health with the number of players in the session.
+- HPScalePerPlayer: How much health each extra player adds. At 1.0, two players means double health, three means triple.
+#### HUD:
+- ShowPeerPanel: Shows the panel in the bottom left with each other player's name, health, ping, and either a compass arrow and distance or the area they're in.
 #### Logging:
-- EnableLogging
-- LogCoopRigidbody
-- LogSpellSync
-- LogWeaponSync
-- LogNPCScanner
-- LogMPMenu
-- LogPlayerVisuals
-- LogPlayerRegistry
-- LogWorldSync
-- LogNetSend
-- LogNetRecv
+All on by default. Warnings and errors are always logged regardless of these.
+- EnableLogging: Master switch for everything below.
+- LogCoopRigidbody: Physics props being synced.
+- LogSpellSync: Spells cast by other players.
+- LogWeaponSync: Attacks, blocks and projectiles from other players.
+- LogNpcScanner: NPCs being found, attacking and dying.
+- LogMPMenu: The co-op menu and the rat npc.
+- LogPlayerVisuals: Other players' models and weapon swaps.
+- LogPlayerRegistry: Players being added to and removed from an area.
+- LogWorldSync: Breakables, levers and other world changes.
+- LogNetSend: Every message sent to other players. Very noisy logging.
+- LogNetRecv: Every message received from other players. Very noisy logging.
 #### Sync:
-- PlayerSendRateHz
-- AutoReconnect
+- PlayerSendRateHz: How many times per second your position is sent to other players. Higher is smoother, at the cost of bandwidth.
+- AutoReconnect: If your connection drops, tries to rejoin automatically. Can also be toggled from the co-op menu. 
 
 ### Game Pausing
 This one may come as a bit of a surprise as it's not a typical feature people would notice initially.
-Lunacid, like a lot of games, limits itself whenever the game isn't the main window, such as being tabbed out or minimized. Lunacid specifically pauses itself entirely, it sets the entire game to 0 while tabbed out. This mod stops that upon Hosting or Joining a game, at either point the game will no longer pause when tabbed out; This is for fairly obvious reasons as to not prevent connection timeouts and fake ping issues that result in a connection boot
-todo: adding the actual technical part for this, it's late and I'm so v tired pls forgive I fix soon(tm)
+Lunacid, like a lot of games, limits itself whenever the game isn't the main window, such as being tabbed out or minimized. Lunacid specifically pauses itself entirely; it sets the entire game to 0 while tabbed out. This mod stops that upon Hosting or Joining a game; at either point, the game will no longer pause when tabbed out. This is for fairly obvious reasons: to prevent connection timeouts and fake ping issues that result in a connection boot.
+
+As for how this works technically: The pause comes from the game's `CONTROL.OnApplicationFocus`, which sets `Time.timeScale` to 0 when the window loses focus. The mod patches the `Time.timeScale` setter itself, so while hosting or connected, any value the game tries to set is forced back to 1. The game does still mutes its audio while tabbed out; only the pause itself is removed.
 
 ### Known Issues, Limitations & Mod Compatibility
-I actually have a massive list of all the possible issues that players could face and will slowly fill them in as time goes on, as for limitations or compatibility issues.. I can't really think of many? Obviously anything that would need to sync players or animations would need some kind of patch but off the top of my head I can't think of any that would!
-(There was recently a map mod that was created, that is on my todo list to check!).
+I actually have a massive list of all the possible issues that players could face and will slowly fill them in as time goes on. As for limitations or compatibility issues... I can't really think of many? Obviously anything that would need to sync players or animations would need some kind of patch, but off the top of my head I can't think of any that would!
+(There was recently a map mod that was created, that is on my todo list to check!)
 
-As I go through mods and verify that they work or don't I will add a new section below this one to confirm the mods that work and don't.
+As I go through mods and verify that they work or don't, I will add a new section below this one to confirm the mods that work and don't.
 
 ## How To Report Issues
-This one is, hopefully fairly straight forward. Where as I intend to provide more options for such, there is currently only one method of reporting an issue to me and that is here on Github ( Again, this will be expanded later whenever it is that I actually... have more methods. )
+This one is, hopefully, fairly straightforward. Whereas I intend to provide more options for such, there is currently only one method of reporting an issue to me, and that is here on GitHub. (Again, this will be expanded later whenever it is that I actually... have more methods.)
 
-If you have never used Github before, you can just go here:
+If you have never used GitHub before, you can just go here:
 
 https://github.com/DeadRequiem/LunacidCoop/issues
 
-Title your issue, attach any relevant images and leave me a way to reproduce the issue you are having, or at the very least describe to me what it is that you did to get the issue, as well as what the issue itself is, and I'll try my best to get it and help you solve the issue, or even fix the code if need be.
+Title your issue, attach any relevant images and leave me a way to reproduce the issue you are having, or at the very least describe to me what it is that you did to get the issue, as well as what the issue itself is, and most importantly the bepin log file which is found in the bepinex folder as 'LogOutput.log', and I'll try my best to get it and help you solve the issue, or even fix the code if need be.
+
+Do note, the log file is rewritten after every launch of the game, so if you run into a specific issue, please grab a copy of the log file before booting the game again.
+
 
 ## Gallery & End notes
 The following is less detail of the mod and more imagery of the mod itself in various stages of creation, progression and in use. Some may have already been used above, but this is a collection of all of them regardless. This mod has gone through a lot of changes and variations over the years and I tried to take screenshots of it as I went to remind myself where it is that I started and where I still could improved and work on. This mod was made out of a passion and love for the game itself, Lunacid's environment truthfully is one of my favorites, with some of the soundtracks like Falling To Death being part of my main playlist. My hope is that others can enjoy playing around with this mod and enjoy the game with friends.
