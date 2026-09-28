@@ -46,32 +46,28 @@ todo
 In terms of config options, there's a lot of variety here, from debugging and logging to gameplay options. Most of which came out of necessity, such as ItemsPerPlayer, but others are completely optional difficulty tweaks for better gameplay experience, below is a list of them all and a brief explanation as to what they are for
 (Explanations are to do right now, will fill in when not tired as I am writing this on no sleep. Does anyone actually read this?)
 #### Debug:
-LocalTestMode
+- LocalTestMode
 #### Display:
-VSyncCount
+- VSyncCount
 #### Gameplay:
-ItemsPerPlayer
-ScaleEnemyHP
-HPScalePerPlayer
+- ItemsPerPlayer
+- ScaleEnemyHP
+- HPScalePerPlayer
 #### Logging:
-EnableLogging
-LogCoopRigidbody
-LogSpellSync
-LogWeaponSync
-LogNPCScanner
-LogMPMenu
-LogPlayerVisuals
-LogPlayerRegistry
-LogWorldSync
-LogNetSend
-LogNetRecv
+- EnableLogging
+- LogCoopRigidbody
+- LogSpellSync
+- LogWeaponSync
+- LogNPCScanner
+- LogMPMenu
+- LogPlayerVisuals
+- LogPlayerRegistry
+- LogWorldSync
+- LogNetSend
+- LogNetRecv
 #### Sync:
-PlayerSendRateHz
-AutoReconnect
-
-
-
-
+- PlayerSendRateHz
+- AutoReconnect
 
 ### Game Pausing
 This one may come as a bit of a surprise as it's not a typical feature people would notice initially.
@@ -79,13 +75,18 @@ Lunacid, like a lot of games, limits itself whenever the game isn't the main win
 todo: adding the actual technical part for this, it's late and I'm so v tired pls forgive I fix soon(tm)
 
 ### Known Issues, Limitations & Mod Compatibility
-I actually have a massive list of all the possible issues that players could face and will slowly fill them in as time goes on, as for limitations or compatibility issues.. I can't really think of many? Obviously anything that would need to sync players or animations would need some kind of patch but off the top of my head I can't think of any that would! (There was recently a map mod that was created, that is on my todo list to check!).
+I actually have a massive list of all the possible issues that players could face and will slowly fill them in as time goes on, as for limitations or compatibility issues.. I can't really think of many? Obviously anything that would need to sync players or animations would need some kind of patch but off the top of my head I can't think of any that would!
+(There was recently a map mod that was created, that is on my todo list to check!).
+
 As I go through mods and verify that they work or don't I will add a new section below this one to confirm the mods that work and don't.
 
 ## How To Report Issues
 This one is, hopefully fairly straight forward. Where as I intend to provide more options for such, there is currently only one method of reporting an issue to me and that is here on Github ( Again, this will be expanded later whenever it is that I actually... have more methods. )
+
 If you have never used Github before, you can just go here:
+
 https://github.com/DeadRequiem/LunacidCoop/issues
+
 Title your issue, attach any relevant images and leave me a way to reproduce the issue you are having, or at the very least describe to me what it is that you did to get the issue, as well as what the issue itself is, and I'll try my best to get it and help you solve the issue, or even fix the code if need be.
 
 ## Gallery & End notes
